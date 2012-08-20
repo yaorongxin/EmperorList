@@ -1,0 +1,52 @@
+
+/**
+ * Module dependencies.
+ */
+
+var express = require('express')
+  , routes = require('./routes')
+  , http = require('http')
+    ,UserProvider = require('./modules/UserProvider').UserProvider
+  , path = require('path');
+
+var app = module.exports = express.createServer();
+var userProvider = new UserProvider('localhost', 27017);
+app.use(express.bodyParser());
+app.configure(function(){
+  app.set('port', process.env.PORT || 3000);
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.favicon());
+  app.use(express.logger('dev'));
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.use(express.static(path.join(__dirname, 'public')));
+});
+
+//app.post('/user', routes.user.postUser);
+app.post('/user',function(req,res){
+    console.log("ok>>>>>>>>");
+    userProvider.save(req,res,function(item){
+       // res.send(item);
+    });
+});
+
+app.get('/getAllUser',function(req,res){
+    console.log("ok>>>>>>>>");
+    userProvider.find(req,function(item){
+         res.send(item);
+    });
+});
+
+
+
+app.configure('development', function(){
+  app.use(express.errorHandler());
+});
+
+app.get('/', routes.index);
+
+app.listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});

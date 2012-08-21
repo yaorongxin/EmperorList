@@ -1,6 +1,6 @@
 /**
  * Created with JetBrains WebStorm.
- * User: wanzhang
+ * User: jiangli
  * Date: 12-8-9
  * Time: 下午5:02
  * To change this template use File | Settings | File Templates.
@@ -47,12 +47,10 @@ UserProvider.prototype.find = function (item, callback) {
     this.getCollection(function (error, collection) {
         if (error) callback(error)
         else {
-          //  console.log("++++++++++"+item.username);
             collection.find({}).toArray(function (err,docs) {
                 if(err){
                     console.log("++++err++++++"+err);
                 }else{
-                    console.log("++++docs++++++"+docs);
                     callback(docs);
                 }
 

@@ -5,11 +5,13 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , http = require('http')
     ,UserProvider = require('./modules/UserProvider').UserProvider
   , path = require('path');
 
-var app = module.exports = express.createServer();
+
+
+var express = require("express");
+var app = express();
 var userProvider = new UserProvider('localhost', 27017);
 app.use(express.bodyParser());
 app.configure(function(){
@@ -24,22 +26,16 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
-//app.post('/user', routes.user.postUser);
 app.post('/user',function(req,res){
-    console.log("ok>>>>>>>>");
     userProvider.save(req,res,function(item){
-       // res.send(item);
     });
 });
 
 app.get('/getAllUser',function(req,res){
-    console.log("ok>>>>>>>>");
     userProvider.find(req,function(item){
          res.send(item);
     });
 });
-
-
 
 app.configure('development', function(){
   app.use(express.errorHandler());

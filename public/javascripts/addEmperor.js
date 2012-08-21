@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
     var EmperorModel = Backbone.Model.extend({
-        urlRoot : '/user'
+        urlRoot : 'http://192.168.1.110:3000/user'
     });
     var EmperorDetailView = Backbone.View.extend({
         el:$('.app'),

@@ -12,7 +12,7 @@ $(document).ready(function(){
         //urlRoot : '/user'
     });
     var EmperorListCollection = Backbone.Collection.extend({
-        url: '/getAllUser',
+        url: 'http://192.168.1.110:3000/getAllUser',
         model:EmperorListModel
     });
 

@@ -8,10 +8,28 @@
     <script type="text/javascript" src='javascripts/underscore-min.js'></script>
     <script type="text/javascript" src='javascripts/backbone-min.js'></script>
     <script type="text/javascript" src="javascripts/handlebars-1.0.0.beta.6.js"></script>
-    <script type="text/javascript" src="javascripts/addEmperor.js"></script>
+    <script type="text/javascript" src="javascripts/emperor.js"></script>
+    <script type="text/javascript" src="javascripts/handlebars-1.0.0.beta.6.js"></script>
+    <script id="addEmperor" type="text/x-handlebars-template">
+        <form>
+            <fieldset>
+                <label for="userName">姓名</label><input type="text" name="userName" id="userName">
+                <label for="miaohao">庙号</label><input type="text" name="miaohao" id="miaohao">
+                <label for="yihao">谥号</label><input type="text" name="yihao" id="yihao">
+                <label for="nianhao">年号</label><input type="text" name="nianhao" id="nianhao">
+                <input type="button" name="save" id="save" value="保存">
+            </fieldset>
+        </form>
+        <p id="err"></p>
+    </script>
 </head>
 <body>
 <div class="app">
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        addEmperor();
+    });
+</script>
 </body>
 </html>

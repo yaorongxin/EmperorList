@@ -23,16 +23,28 @@
             <td>{{nianhao}}</td>
         </tr>
     </script>
+    <script id="addEmperor" type="text/x-handlebars-template">
+        <form>
+            <fieldset>
+                <label for="userName">姓名</label><input type="text" name="userName" id="userName">
+                <label for="miaohao">庙号</label><input type="text" name="miaohao" id="miaohao">
+                <label for="yihao">谥号</label><input type="text" name="yihao" id="yihao">
+                <label for="nianhao">年号</label><input type="text" name="nianhao" id="nianhao">
+                <input type="button" name="save" id="save" value="保存">
+            </fieldset>
+        </form>
+        <p id="err"></p>
+    </script>
 </head>
 <body>
 <div class="app">
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-//        var emperorCollectionView = new EmperorCollectionView;
+//        var emperorCollectionView = new reader.EmperorCollectionView;
 //        emperorCollectionView.render().$el.appendTo('.app');
-        var emperorCollectionView = new reader.EmperorCollectionView;
-        emperorCollectionView.render().$el.appendTo('.app');
+        var appRouter = new reader.AppRouter;
+        Backbone.history.start();
     });
 </script>
 </body>

@@ -12,6 +12,23 @@ var reader = {
 //$(reader.init);
 (function (reader) {
 
+    reader.AppRouter = Backbone.Router.extend({
+        routes: {
+            "addEmperor":"addEmperor",
+            "*actions": "defaultRoute"
+        },
+        addEmperor: function(){
+            var emperorFormView = new reader.EmperorFormView;
+            var emperor = new reader.Emperor();
+            emperorFormView.model = emperor;
+            emperorFormView.render().$el.appendTo('.app');
+        },
+        defaultRoute:function(){
+            var emperorCollectionView = new reader.EmperorCollectionView;
+            emperorCollectionView.render().$el.appendTo('.app');
+        }
+    });
+
     reader.Emperor = Backbone.Model.extend({
         urlRoot:'/user'
     });
@@ -29,6 +46,7 @@ var reader = {
             this.model.on('add', this.addToView);
         },
         render:function () {
+            $('.app').empty();
             var source = $("#emperoritem").html();
             var template = Handlebars.compile(source);
             var html = template();
@@ -46,13 +64,14 @@ var reader = {
             'click #addUserButton':'add'
         },
         add:function () {
-            self.location = 'addEmperor.html';
+            self.location = '#addEmperor';
         }
     });
 
     reader.EmperorFormView = Backbone.View.extend({
         tagName:'div',
         render:function () {
+            $('.app').empty();
             var source = $("#addEmperor").html();
             var template = Handlebars.compile(source);
             var html = template();
@@ -69,7 +88,7 @@ var reader = {
                     if (!res.isSuccess) {
                         $("#err").html(res.info);
                     } else {
-                        self.location = 'index.html';
+                        self.location = '#defaultRoute';
                     }
                 },
                 error:function () {

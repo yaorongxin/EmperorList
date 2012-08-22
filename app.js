@@ -27,7 +27,6 @@ app.configure(function(){
 });
 
 app.post('/user',function(req,res){
-    console.log(">>>>>>>"+req.body.userName);
     userProvider.save(req,res,function(item){
     });
 });

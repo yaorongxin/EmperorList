@@ -28,7 +28,14 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        addEmperor();
+//        var emperorFormView = new EmperorFormView;
+//        var emperor = new Emperor();
+//        emperorFormView.model = emperor;
+//        emperorFormView.render().$el.appendTo('.app');
+        var emperorFormView = new reader.EmperorFormView;
+        var emperor = new reader.Emperor();
+        emperorFormView.model = emperor;
+        emperorFormView.render().$el.appendTo('.app');
     });
 </script>
 </body>

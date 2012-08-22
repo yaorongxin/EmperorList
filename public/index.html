@@ -10,12 +10,18 @@
     <script type="text/javascript" src="javascripts/emperor.js"></script>
     <script type="text/javascript" src="javascripts/handlebars-1.0.0.beta.6.js"></script>
     <script id="emperoritem" type="text/x-handlebars-template">
-            <tr>
-                <td>{{userName}}</td>
-                <td>{{miaohao}}</td>
-                <td>{{yihao}}</td>
-                <td>{{nianhao}}</td>
-            </tr>
+        <button id="addUserButton">添加</button>
+        <table border="1" class="page">
+            <tr><th>姓名</th><th>庙号</th><th>谥号</th><th>年号</th></tr>
+        </table>
+    </script>
+    <script id="emperor" type="text/x-handlebars-template">
+      <tr>
+            <td>{{userName}}</td>
+            <td>{{miaohao}}</td>
+            <td>{{yihao}}</td>
+            <td>{{nianhao}}</td>
+        </tr>
     </script>
 </head>
 <body>
@@ -23,7 +29,10 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        emperorList();
+//        var emperorCollectionView = new EmperorCollectionView;
+//        emperorCollectionView.render().$el.appendTo('.app');
+        var emperorCollectionView = new reader.EmperorCollectionView;
+        emperorCollectionView.render().$el.appendTo('.app');
     });
 </script>
 </body>

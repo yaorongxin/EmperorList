@@ -6,47 +6,48 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var reader = {
+var emperor = {
 
 };
-//$(reader.init);
-(function (reader) {
+//$(emperor.init);
+(function (emperor) {
 
-    reader.AppRouter = Backbone.Router.extend({
+    emperor.AppRouter = Backbone.Router.extend({
         routes: {
             "addEmperor":"addEmperor",
             "*actions": "defaultRoute"
         },
         addEmperor: function(){
-            var emperorFormView = new reader.EmperorFormView;
-            var emperor = new reader.Emperor();
-            emperorFormView.model = emperor;
-            emperorFormView.render().$el.appendTo('.app');
+            var emperorFormView = new emperor.EmperorFormView;
+            var emperorItem = new emperor.Emperor();
+            emperorFormView.model = emperorItem;
+            emperorFormView.render().$el.appendTo('#app');
         },
         defaultRoute:function(){
-            var emperorCollectionView = new reader.EmperorCollectionView;
-            emperorCollectionView.render().$el.appendTo('.app');
+            var emperorCollectionView = new emperor.EmperorCollectionView;
+            emperorCollectionView.render().$el.appendTo('#app');
         }
     });
 
-    reader.Emperor = Backbone.Model.extend({
+    emperor.Emperor = Backbone.Model.extend({
         urlRoot:'/user'
     });
 
-    reader.EmperorCollection = Backbone.Collection.extend({
+    emperor.EmperorCollection = Backbone.Collection.extend({
         url:'/getAllUser',
-        model:reader.Emperor
+        model:emperor.Emperor
     });
 
-    reader.EmperorCollectionView = Backbone.View.extend({
+    emperor.EmperorCollectionView = Backbone.View.extend({
         tagName:'div',
+        className:'listView',
         initialize:function () {
-            this.model = new reader.EmperorCollection;
+            this.model = new emperor.EmperorCollection;
             this.model.fetch({add:true});
             this.model.on('add', this.addToView);
         },
         render:function () {
-            $('.app').empty();
+            $('#app').empty();
             var source = $("#emperoritem").html();
             var template = Handlebars.compile(source);
             var html = template();
@@ -68,10 +69,11 @@ var reader = {
         }
     });
 
-    reader.EmperorFormView = Backbone.View.extend({
+    emperor.EmperorFormView = Backbone.View.extend({
         tagName:'div',
+        className:'listView',
         render:function () {
-            $('.app').empty();
+            $('#app').empty();
             var source = $("#addEmperor").html();
             var template = Handlebars.compile(source);
             var html = template();
@@ -79,8 +81,9 @@ var reader = {
             return this;
         },
         events:{
-            'click #save':'save',
-            'change #userName, #miaohao, #yihao, #nianhao':'change'
+            'change #userName, #miaohao, #yihao, #nianhao':'change',
+            'click #save':'save'
+
         },
         save:function () {
             this.model.save(null, {
@@ -105,4 +108,4 @@ var reader = {
     });
 
 
-}(reader));
+}(emperor));

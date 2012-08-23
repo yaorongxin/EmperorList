@@ -1,40 +1,114 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    background: #E6EAE9;
 }
-
 a {
-  color: #00B7FF;
+    color: #c75f3e;
 }
-form {
-    width: 300px;
-    height: 200px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin: 20px auto;
+label{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+label,input {
+    font: bold 15px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+input {
+    width:300px;
+}
+#save{
+    width:100px;
+    margin: auto;
+}
+#addUserButton{
+    width:100px;
+    margin: auto;
+}
+#emperorTable {
+    width: 700px;
+    padding: 0;
+    margin: 0;
+    background: #000;
+    opacity: 0.8;
+    margin: 10px auto;
     display: -webkit-box;
     -webkit-box-orient: horizontal;
     -webkit-box-pack: center;
     -webkit-box-align: center;
-    /*display: -moz-box;*/
-    /*-moz-box-orient: horizontal;*/
-    /*-moz-box-pack: center;*/
-    /*-moz-box-align: center;*/
-    /*display: -o-box;*/
-    /*-o-box-orient: horizontal;*/
-    /*-o-box-pack: center;*/
-    /*-o-box-align: center;*/
-    /*display: -ms-box;*/
-    /*-ms-box-orient: horizontal;*/
-    /*-ms-box-pack: center;*/
-    /*-ms-box-align: center;*/
-    /*display: box;*/
-    /*box-orient: horizontal;*/
-    /*box-pack: center;*/
-    /*box-align: center;*/
 }
-.center img,
-.text {
-    border: 1px solid #dedede;
-    padding: 2px;
+caption {
+    padding: 0 0 5px 0;
+    width: 700px;
+    font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    text-align: right;
+}
+
+th {
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+    border-top: 1px solid #C1DAD7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 6px 6px 6px 12px;
+}
+
+th.nobg {
+    border-top: 0;
+    border-left: 0;
+    border-right: 1px solid #C1DAD7;
+    background: none;
+}
+
+td {
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+    background: #fff;
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    padding: 6px 6px 6px 12px;
+    color: #4f6b72;
+}
+
+td.alt {
+    background: #F5FAFA;
+    color: #797268;
+}
+
+th.spec {
+    border-left: 1px solid #C1DAD7;
+    border-top: 0;
+    font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+th.specalt {
+    border-left: 1px solid #C1DAD7;
+    border-top: 0;
+    font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #797268;
+}
+
+.listView{
+    width: 800px;
+    height: 600px;
+    padding-top: 10px;
+    margin: 20px auto;
+    -webkit-box-shadow:5px 2px 10px 5px black;
+    background: url(../images/backgroundimg.png) no-repeat ;
+    background-size: cover;
+}
+form {
+    width: 400px;
+    height: 320px;
+    background: #f1f2f3;
+    opacity: 0.8;
+    margin: 100px auto;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+.emperorInfo{
+    padding-top: 20px;
 }

@@ -11,10 +11,10 @@
     <script type="text/javascript" src="javascripts/handlebars-1.0.0.beta.6.js"></script>
     <link href="stylesheets/style.css" rel="stylesheet">
     <script id="emperoritem" type="text/x-handlebars-template">
-        <button id="addUserButton">添加</button>
-        <table border="1" class="page">
-            <tr><th>姓名</th><th>庙号</th><th>谥号</th><th>年号</th></tr>
-        </table>
+        <p style="text-align:center;"><input type='button'name="save" value='添加' id="addUserButton"></p>
+           <table  id="emperorTable" cellspacing="0">
+               <tr><th scope="col"  class="nobg">姓名</th><th scope="col">庙号</th><th scope="col">谥号</th><th scope="col">年号</th></tr>
+           </table>
     </script>
     <script id="emperor" type="text/x-handlebars-template">
       <tr>
@@ -26,25 +26,27 @@
     </script>
     <script id="addEmperor" type="text/x-handlebars-template">
         <form>
-            <fieldset>
-                <label for="userName">姓名</label><input type="text" name="userName" id="userName">
-                <label for="miaohao">庙号</label><input type="text" name="miaohao" id="miaohao">
-                <label for="yihao">谥号</label><input type="text" name="yihao" id="yihao">
-                <label for="nianhao">年号</label><input type="text" name="nianhao" id="nianhao">
-                <input type="button" name="save" id="save" value="保存">
-            </fieldset>
+<fieldset>
+    <legend>输入Emperor信息</legend>
+            <div class="emperorInfo"><label for="userName">姓名</label><input type="text" name="userName" id="userName"></div> <br>
+            <div class="emperorInfo"><label for="miaohao">庙号</label><input type="text" name="miaohao" id="miaohao"></div> <br>
+            <div class="emperorInfo"><label for="yihao">谥号</label><input type="text" name="yihao" id="yihao"></div> <br>
+            <div class="emperorInfo"><label for="nianhao">年号</label><input type="text" name="nianhao" id="nianhao"></div> <br>
+                <hr>
+           <p style="text-align:center;"><input type='button'  name="save" value='保存' id="save"></p>
+</fieldset>
         </form>
         <p id="err"></p>
     </script>
 </head>
 <body>
-<div class="app">
+<div id="app">
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
 //        var emperorCollectionView = new reader.EmperorCollectionView;
 //        emperorCollectionView.render().$el.appendTo('.app');
-        var appRouter = new reader.AppRouter;
+        var appRouter = new emperor.AppRouter;
         Backbone.history.start();
     });
 </script>
